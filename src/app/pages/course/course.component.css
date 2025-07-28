@@ -1,0 +1,68 @@
+/* Container: Center chips */
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* center vertically */
+  gap: 24px;
+  padding: 20px;
+  min-height: 90vh; /* full height */
+  background: linear-gradient(to right, #e0f2f1, #f1f8e9);
+}
+
+/* Chip Style */
+.course-chip {
+  position: relative;
+  width: 240px;
+  height: 100px;
+  background: linear-gradient(to right, #42a5f5, #478ed1);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.course-chip:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip */
+.chip-tooltip {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #333;
+  width: 260px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.course-chip:hover .chip-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+/* Tooltip content */
+.chip-tooltip p {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}

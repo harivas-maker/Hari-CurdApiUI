@@ -1,0 +1,200 @@
+.student-card-container {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  background-color: #f9f9f9;
+}
+
+.form-side, .table-side {
+  flex: 1;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-side h3, .table-side h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.edit-btn, .delete-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+  margin-right: 5px;
+}
+
+.edit-btn {
+  background-color: #f39c12;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+}
+.form-side input,
+.form-side select {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .student-card-container {
+    flex-direction: column;
+  }
+  .form-side, .table-side {
+    max-width: 100%;
+  }
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  margin-right: 6px;
+  font-size: 18px;
+  color: #555;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: #eee;
+}
+
+.edit-btn {
+  color: #f39c12; /* orange */
+}
+
+.edit-btn:hover {
+  color: #d78f10;
+}
+
+.delete-btn {
+  color: #e74c3c; /* red */
+}
+
+.delete-btn:hover {
+  color: #c0392b;
+}
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  margin: 0 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-icon i {
+  pointer-events: none;
+}
+
+.save {
+  color: #28a745;
+}
+
+.save:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel {
+  color: #ffc107;
+}
+
+.cancel:hover {
+  background-color: #ffc107;
+  color: black;
+}
+
+.action-button-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.page-number,
+.nav-btn {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.page-number:hover,
+.nav-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.page-number.active {
+  background-color: #1976d2;
+  color: white;
+  font-weight: bold;
+  border-color: #1976d2;
+}
+

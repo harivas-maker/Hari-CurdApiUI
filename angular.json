@@ -19,6 +19,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -30,14 +31,20 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+
+          "assets": [
+             "src/favicon.ico",
+             "src/assets",
+                 {
+                  "glob": "**/*",
+                  "input": "node_modules/pdfjs-dist/legacy/build/",
+                  "output": "/pdfjs"
+                 }
+],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+            
+            "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -96,6 +103,8 @@
             ],
             "styles": [
               "src/styles.css"
+
+           
             ],
             "scripts": []
           }

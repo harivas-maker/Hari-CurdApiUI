@@ -1,0 +1,137 @@
+
+
+<!-- rest of your student component content -->
+
+<div class="student-card-container">
+   
+  <!-- Left: Student Form -->
+  <div class="form-side">
+    <h3>{{ editingIndex !== null ? 'Edit Student' : 'Add Student' }}</h3>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input formControlName="name" placeholder="Enter name" />
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" formControlName="dateOfBirth" />
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select formControlName="gender">
+          <option value="" disabled>Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" formControlName="age" />
+      </div>
+      <div class="form-group">
+        <label>Qualification</label>
+        <input formControlName="qualification" placeholder="Qualification" />
+      </div>
+      <button type="submit">
+        {{ editingIndex !== null ? 'Update' : 'Add' }}
+      </button>
+    </form>
+  </div>
+
+  <!-- Right: Student Table -->
+  <div class="table-side">
+    <h3>Student List</h3>
+    <table>
+      <thead>
+        <tr>
+        
+          <th>Name</th>
+          <th>DOB</th>
+          <th>Gender</th>
+          <th>Age</th>
+          <th>Qualification</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let student of paginatedStudents; index as i">
+  <td>
+    <ng-container *ngIf="editingIndex === i && editedStudent; else viewName">
+      <input [(ngModel)]="editedStudent.name" />
+    </ng-container>
+    <ng-template #viewName>{{ student.name }}</ng-template>
+  </td>
+
+  <td>
+    <ng-container *ngIf="editingIndex === i && editedStudent; else viewDob">
+      <input type="date" [(ngModel)]="editedStudent.dob" />
+    </ng-container>
+    <ng-template #viewDob>{{ student.dob | date: 'mediumDate' }}</ng-template>
+  </td>
+
+  <td>
+    <ng-container *ngIf="editingIndex === i && editedStudent; else viewGender">
+      <input [(ngModel)]="editedStudent.gender" />
+    </ng-container>
+    <ng-template #viewGender>{{ student.gender }}</ng-template>
+  </td>
+
+  <td>
+    <ng-container *ngIf="editingIndex === i && editedStudent; else viewAge">
+      <input type="number" [(ngModel)]="editedStudent.age" />
+    </ng-container>
+    <ng-template #viewAge>{{ student.age }}</ng-template>
+  </td>
+
+  <td>
+    <ng-container *ngIf="editingIndex === i && editedStudent; else viewQualification">
+      <input [(ngModel)]="editedStudent.qualification" />
+    </ng-container>
+    <ng-template #viewQualification>{{ student.qualification }}</ng-template>
+  </td>
+
+  <td>
+     <ng-container *ngIf="editingIndex === i; else actionButtons">
+    <div class="action-button-group">
+      <button class="btn-icon save" title="Save" (click)="saveEdit(i)">
+        <i class="fas fa-check"></i>
+      </button>
+      <button class="btn-icon cancel" title="Cancel Edit" (click)="cancelEdit()">
+        <i class="fas fa-undo"></i> <!-- ↩️ Better cancel/reverse look -->
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #actionButtons>
+    <button class="btn-icon edit-btn" (click)="onEdit(i)" title="Edit">
+      <i class="fas fa-edit"></i>
+    </button>
+    <button class="btn-icon delete-btn" (click)="onDelete(i)" [disabled]="editingIndex !== null" title="Delete">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+  </ng-template>
+
+  </td>
+</tr>
+
+      </tbody>
+    </table>
+<div class="pagination-wrapper">
+  <button class="nav-btn" (click)="goToPreviousPage()" [disabled]="currentPage === 1">«</button>
+
+  <button
+    class="page-number"
+    *ngFor="let page of pageNumbers"
+    [class.active]="page === currentPage"
+    (click)="goToPage(page)"
+  >
+    {{ page }}
+  </button>
+
+  <button class="nav-btn" (click)="goToNextPage()" [disabled]="currentPage === totalPages">»</button>
+</div>
+
+
+  </div>
+</div>

@@ -1,0 +1,14 @@
+
+<!-- rest of the component content -->
+
+<div class="chip-container">
+    
+  <div class="course-chip" *ngFor="let course of courses">
+    <span class="chip-title">{{ course.title }}</span>
+    <div class="chip-tooltip">
+      <p><strong>📘 Subjects:</strong> {{ course.subjects.join(', ') }}</p>
+      <p><strong>💰 Fee:</strong> {{ course.fee }}</p>
+      <p><strong>⏳ Duration:</strong> {{ course.duration }}</p>
+    </div>
+  </div>
+</div>
